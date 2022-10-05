@@ -2,7 +2,7 @@
 
 - Vulnerability: Privilege Escalation
 
-- The severity of the issue: Meduim
+- The severity of the issue: High
 
 - Description :
 
