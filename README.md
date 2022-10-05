@@ -134,6 +134,7 @@ we've noticed a crontab runnign every 5 min */5 with sudo priviliege located in 
 	ls -la ; cat ./finally.sh
 	
 noticed that we don't have permission to modify on the finally script but he can run the write.sh that we have privileges so why not modify it to become ;
+
 	touch output.txt ; chmod 777 output.txt
 	cd /root/ ; ls -la >  output.txt
 	
