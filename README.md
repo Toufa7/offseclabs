@@ -21,7 +21,6 @@ With it (IP Address of the machine) the first thing got in mind is to grab a ser
 Then with The help of Nikto, we can scan web servers for known vulnerabilities 
 
 	nikto -host ip_add
-  
 
 After that we've some directories we've tested the common robots.txt which tells the search engines which directories not to enter :
  
@@ -53,7 +52,6 @@ though the scan of Linepeas we've noticed a suid in the bash builtin command (in
 	
 with the -p option through some googling it turns up it's a bug that allows the default shell to run with SUID privileges meaning that we have permission to run with the owner privilege
 
-
 I gain access and i become a root
 
 	cd /root/ ; cat proof.txt
@@ -67,7 +65,6 @@ https://gtfobins.github.io/gtfobins/bash/
 man nmap, nikto
 
 https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS 
-
 
 
 # Machine: Sar
@@ -137,12 +134,9 @@ we've noticed a crontab runnign every 5 min */5 with sudo priviliege located in 
 	ls -la ; cat ./finally.sh
 	
 noticed that we don't have permission to modify on the finally script but he can run the write.sh that we have privileges so why not modify it to become ;
-
-
 	touch output.txt ; chmod 777 output.txt
 	cd /root/ ; ls -la >  output.txt
 	
-
 since the output always shows up at the root machine i thought to redirect it to a file after playing the waiting game for 5 min the script runs successfully and i was able to see the file in the root directory 
 
 
@@ -150,9 +144,6 @@ since we've soul the files, i've modified the file to output anything to my file
 
 
 	cd /root/ ; ls -la >  output.txt  
-	
-
-	
 
 # Resources:
 as always man pages for the tools i've used
